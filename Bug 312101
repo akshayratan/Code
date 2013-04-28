@@ -1,0 +1,24 @@
+//This patch is regarding the bug which in my opinion is solved.
+
+
+In the playlistmodel.cpp which is written by Sinny Kumari , the function PlaylistModel () , the following patch is there which looks perfect to me regarding adding multiple media to a playlist~~~
+
+void PlaylistModel::addToPlaylist(const QString& url, const QString& name)
+{
+    const int n = rowCount();
+    beginInsertRows(QModelIndex(), n, n);      // This also should work fine in accordance with QAbstractItemModel class propertiest pull
+    
+
+    PlaylistItem item;
+    item.setMediaName(name);
+    item.setMediaUrl(url);
+    m_musicList.append(item);
+
+    endInsertRows();
+}
+
+
+
+
+
+I have again tried to reproduce the bug, and I dont find any issues. So I would suggest closing the bug if you feel right.
