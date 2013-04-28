@@ -1,3 +1,5 @@
+/* Developer  Akshay Ratan  */
+
 #include <stdio.h>
 #include <pthread.h>
 void *print_stuff(void *ptr) {
